@@ -1,0 +1,70 @@
+<% posters.forEach((poster, i) => { %>
+  <article class="card_poster js-item col-6 col-md-4 col-lg-3 my-4 mix <%=  poster.category %> <%=  poster.theme %> <% for (filter in poster.filters) { for (var i = 0; i < poster.filters[filter].subTheme.length; i++) {%> <%= poster.filters[filter].subTheme[i] %> <%}}%>" data-price="<%=  poster.price %>" data-name="<%=  poster.title %>">
+
+    <div class="card_poster__area_image d-flex justify-content-center">
+      <img class="card_poster__image img-fluid" src="img/cover/<%= poster.id %>.jpg" alt="<%= poster.title %> premium poster" style="" >
+    </div>
+
+    <div class="col-12 d-flex justify-content-between px-0 pt-4">
+      <div class="text-truncate">
+        <h3 class="card_poster__title " ><%= poster.title %></h3>
+        <h4 class="card_poster__artist " ><%= poster.artist %></h4>
+        <p class="card_poster__price " ><%- Number(poster.price).toFixed(2);%> € </p>
+
+        <!-- test area poster 100 genres-->
+        <div class="">
+          <ul>
+
+
+            <!-- simple nested list -->
+            <div class="col-12 d-flex flex-column">
+              <% for (tag in poster.tags) { %>
+                <span> <%= poster.tags[tag] %></span>
+              <%}%>
+            </div>
+
+            +++++++	Lists each Genre Name +++++++++
+                <% for (genre in poster.genres) { %>
+                  <p> <%= poster.genres[genre].name %></p>
+                  <%}%>
+
+              +++++++		Lists Sub genre +++++++
+                  <% for (genre in poster.genres) { %>
+                    <% for (var i = 0; i < poster.genres[genre].genre_sub.length; i++) {%>
+                      <p> <%= poster.genres[genre].genre_sub[i] %></p>
+                      <%}%>
+                      <%}%>
+
+
+
+                      +++++++	Lists each Genre Name +++++++++
+                          <% for (genre in poster.genres) { %>
+                            <p> <%= poster.genres[genre].name %></p>
+                            <%}%>
+
+                        +++++++		Lists Sub genre +++++++
+                            <% for (genre in poster.genres) { %>
+                              <% for (var i = 0; i < poster.genres[genre].genre_sub.length; i++) {%>
+                                <p> <%= poster.genres[genre].genre_sub[i] %></p>
+                                <%}%>
+                                <%}%>
+
+
+                                  </ul>
+
+                                </div>
+
+
+                                        </div>
+
+                                        <!-- wishlist icon -->
+                                        <div class="card_poster__favourite d-flex justify-content-end">
+                                          <i class="card_poster__favourite--icon" data-feather="heart"></i>
+                                        </div>
+
+                                      </div>
+
+                                      <% numPosters += 1; %>
+
+                                    </article>
+                                    <% }); %>

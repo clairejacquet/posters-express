@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title><%= brand %> in Express</title>
+	<link rel='shortcut icon' type='image' href='img/favicon.png' />
+
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- feathericons -->
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+</head>
+<body>
+
+	<!-- branding area and search bar -->
+	<header class="header container">
+		<section class="row d-flex justify-content-between align-items-center">
+
+			<a href="/" class="col header__branding--link">
+				<h1 class="header__branding"><%= brand %></h1>
+			</a>
+
+			<form id="search" class="search__box">
+				<!-- <i class="fas fa-search"></i> -->
+				<i class="search__icon" data-feather="search"></i>
+				<input  id="searchInput" class="search__input" placeholder="Search" type="text" name="search" value="">
+				<!-- <button class="search__submit_button" type="submit">Search</button> -->
+			</form>
+
+			<!-- <div class="search d-flex align-center" id="search">
+			<label for="searchInput">Search posters</label>
+			<input id="searchInput" type="text">
+			<button type="submit">Submit</button>
+		</div> -->
+
+		<!--
+		<div class="search-container">
+		<form action="">
+		<input type="text" placeholder="Search.." name="search">
+		<button type="submit">Submit</button>
+	</form>
+</div>
+-->
+
+</section>
+</header>

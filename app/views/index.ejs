@@ -1,0 +1,27 @@
+<%- include('./partials/header'); -%>
+
+<main class="container">
+
+	<!-- introduction text -->
+	<section class="row presentation">
+		<div class="col-12 offset-lg-1 col-lg-10 my-5 presentation__area">
+			<h2 class="presentation__title"><%= page.name %></h2>
+			<p  class="presentation__description"><%= page.description %></p>
+		</div>
+	</section>
+
+	<!-- ....... search bar and filters ..........  -->
+	<%- include('./partials/selection'); -%>
+
+	<!-- .................... Posters displays Area  .............................................  -->
+	<section id="galleryPosters" class="galleryPosters row d-flex flex-wrap justify-content-center px-0 mx-0" >
+
+		<% postersList.forEach(poster => { %>
+			<%- include('partials/listElement', { poster }); %>
+			<% }); %>
+
+		</section>
+
+</main>
+
+<%- include('./partials/footer'); -%>

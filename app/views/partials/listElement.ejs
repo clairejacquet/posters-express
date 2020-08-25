@@ -1,0 +1,23 @@
+<article class="card_poster col-6 col-md-4 col-lg-3 my-4 mix <%= poster.category %> <%= poster.theme %>" data-price="<%=  poster.price %>" data-name="<%=  poster.title %>">
+
+<!-- poster image area  -->
+  <div class="card_poster__area_image d-flex justify-content-center">
+    <img class="card_poster__image img-fluid" src="img/cover/<%= poster.id %>.jpg" alt="<%= poster.title %> premium poster">
+  </div>
+
+  <!-- poster text area  -->
+
+  <div class="col-12 d-flex justify-content-between px-0 pt-4">
+    <div class="text-truncate">
+      <h3 class="card_poster__title " ><%= poster.title %></h3>
+      <h4 class="card_poster__artist " ><%= poster.artist %></h4>
+      <p class="card_poster__price " ><%- Number(poster.price).toFixed(2);%> € </p>
+    </div>
+
+    <!-- wishlist icon -->
+    <div class="card_poster__favourite d-flex justify-content-end">
+      <i class="card_poster__favourite--icon" data-feather="heart"></i>
+    </div>
+  </div>
+
+</article>

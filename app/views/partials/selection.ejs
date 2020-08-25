@@ -1,0 +1,84 @@
+
+<!--  ..... large search bar area ..... -->
+<div class="row">
+  <form id="search" class="search__box search__box--lg offset-1 col-10 offset-md-2 col-md-8">
+    <i class="search__icon" data-feather="search"></i>
+    <input  id="searchInput" class="search__input" placeholder="Search" type="text" name="search" value="">
+    <button class="search__submit_button" type="submit">Search</button>
+  </form>
+</div>
+
+<!-- ..... filters : style of poster and themes .....  -->
+<section class="filter_area row d-flex flex-column align-items-around">
+
+  <!-- ..... filter area STYLES .....  -->
+  <div class="filter_area__row col d-flex flex-column justify-content-start align-items-center" data-target="">
+
+    <!-- ..... filter title ..... -->
+    <div class="filter_area__title d-flex justify-content-center">
+      <p>Styles</p>
+    </div>
+
+    <!-- ..... filter list options  ..... -->
+    <form class="filter_area__by_list_styles d-flex justify-content-center ">
+
+      <div class="filter_area__style d-flex align-items-baseline  justify-content-start flex-nowrap">
+        <input type="radio" id="all" name="style" value="all" data-filter="all" />
+        <label for="all">All Styles</label>
+      </div>
+
+      <% for (var style of stylesArray) { %>
+        <div class="filter_area__style d-flex align-items-baseline  justify-content-start flex-nowrap">
+          <input type="radio" id="<%= style %>" name="style" value="<%= style %>" data-filter=".<%= style %>" />
+          <label for="<%= style %>"><%= style %></label>
+        </div>
+        <% }; %>
+
+      </form>
+    </div>
+
+    <!-- ..... filter area THEMES .....  -->
+    <div class="filter_area__row col d-flex flex-column justify-content-start align-items-center" data-target="">
+
+      <!-- ..... filter title ..... -->
+      <div class="filter_area__title d-flex justify-content-center">
+        <p>Themes</p>
+      </div>
+
+      <!-- ..... filter list options  ..... -->
+      <ul class="filter_area__by_list_themes controls d-flex justify-content-center ">
+        <!--
+        <li class="control" data-filter="all">Show all</li>
+        <li class="control" data-toggle=".photography">Category A</li>
+        <li class="control" data-toggle=".illustrations">Category B</li>
+        <li class="control" data-filter="none">Hide all</li>
+      -->
+
+      <div class="filter_area__theme d-flex align-items-center"  data-filter="all">
+        <img src="/img/themes/retro.jpg" class="filter_area__theme--image rounded-circle" alt="<%= theme %>">
+        <li class="control">all themes</li>
+      </div>
+
+      <% for (var theme of themesArray) { %>
+        <div class="filter_area__theme d-flex align-items-center" data-toggle=".<%= theme %>">
+          <img src="/img/themes/<%= theme %>.jpg" class="filter_area__theme--image rounded-circle" alt="<%= theme %>">
+          <li class="control" ><%= theme %></li>
+        </div>
+        <% }; %>
+      </ul>
+
+      </div>
+    </section>
+
+    <!-- ..... Sorting options : (price low - high ) (name a - z) -->
+    <section class="row ">
+      <div class="col-12 d-flex justify-content-between align-items-start controls sort_by_list">
+        <ul class="controls d-flex">
+          <p class="sort_by_list--title">Sort by:</p>
+          <li data-sort="name:asc">name (A-Z)</li>
+          <li data-sort="name:desc">name (Z-A)</li>
+          <li data-sort="price:asc">Price low to high</li>
+          <li data-sort="price:desc">Price high to low</li>
+        </ul>
+      </div>
+    </section>
