@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 
+app.set('port', (process.env.PORT || 5000))
 var router = require('./router');
 
 
@@ -17,5 +18,6 @@ app.set('views', __dirname + '/app/views');
 
 app.use(router);
 
-app.listen(8080);
-console.log('8080 is the magic port');
+app.listen(app.get('port'), function () {
+  console.log('8080 is the magic port');
+});
