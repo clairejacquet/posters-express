@@ -7,20 +7,31 @@ var testPosters = JSON.stringify(testPostersDocu) ;
 
 const controllers = {
 
-  loadPosterSingleMiddleware:  (request, response, next) => {
-        const posterId = request.params.id;
-        dataMapper.getPosterById(posterId, poster => {
-            response.locals.poster = poster;
-            next();
-        });
-    },
+  loadPosterSingleMiddleware:  (request, response) => {
+    const posterId =  parseInt(request.params.id, 10);
+
+    // const poster = posters.filter( (poster)=> poster.id == posterId ).pop();
+
+    dataMapper.getPosterById(posterId, poster => {
+      response.locals.poster = poster;
+
+      response.render('posterSingle', {
+        poster,
+        brand: "Posters"
+      });
+
+      // if ( posterId !== poster ) {
+      //   response.redirect('/');
+      // }
+    });
+
+  },
 
   loadPostersMiddleware: (request, response, next) => {
     const queryString = request.query.search;
 
     dataMapper.search(queryString, (postersList) => {
       response.locals.postersList = postersList ;
-
       next();
     })
   },
@@ -40,17 +51,17 @@ const controllers = {
 
 
     response.render('index', {
-        posters,
-        numPosters: 0,
-        numPostersTest: 0,
-        brand: "Posters",
-        page: {
-            name: "Fresh inspiration from our artist community",
-            description: "Whether your walls are looking bare or it's simply time for something new, dressing them up with art is always a great idea. Let your rooms reflect your personality with our photography, illustration and typography art prints and much, much more. There's no place like home. Especially when you're surrounded by the things you love. Our artist community is made up of creatives from all corners of the globe. Every month, we expand our catalogue with freshly curated designs. Discover the newest additions to our ever-growing collection—featuring photography, illustrations & more."
-        },
-        stylesArray,
-        themesArray,
-        navArray
+      posters,
+      numPosters: 0,
+      numPostersTest: 0,
+      brand: "Posters",
+      page: {
+        name: "Fresh inspiration from our artist community",
+        description: "Whether your walls are looking bare or it's simply time for something new, dressing them up with art is always a great idea. Let your rooms reflect your personality with our photography, illustration and typography art prints and much, much more. There's no place like home. Especially when you're surrounded by the things you love. Our artist community is made up of creatives from all corners of the globe. Every month, we expand our catalogue with freshly curated designs. Discover the newest additions to our ever-growing collection—featuring photography, illustrations & more."
+      },
+      stylesArray,
+      themesArray,
+      navArray
     });
 
 

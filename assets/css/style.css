@@ -262,6 +262,13 @@ body ::selection {
 .card_poster {
   font-weight: bold;
 }
+.card_poster .card_poster--link {
+  color: black;
+}
+.card_poster .card_poster--link:hover {
+  color: black;
+  text-decoration: none;
+}
 .card_poster .card_poster__area_image {
   overflow: hidden !important;
   max-height: 340px;

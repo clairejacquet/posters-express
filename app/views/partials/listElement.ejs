@@ -1,10 +1,12 @@
 <article class="card_poster col-6 col-md-4 col-lg-3 my-4 mix <%= poster.category %> <%= poster.theme %>" data-price="<%=  poster.price %>" data-name="<%=  poster.title %>">
+  <a href="/poster/<%= poster.id %>"class="card_poster--link">
 
-<!-- poster image area  -->
-  <div class="card_poster__area_image d-flex justify-content-center">
-    <img class="card_poster__image img-fluid" src="img/cover/<%= poster.id %>.jpg" alt="<%= poster.title %> premium poster">
-  </div>
-
+    <!-- poster image area  -->
+    <div class="card_poster__area_image d-flex justify-content-center">
+      <img class="card_poster__image img-fluid" src="img/cover/<%= poster.id %>.jpg" alt="<%= poster.title %> premium poster">
+    </div>
+  </a>
+  
   <!-- poster text area  -->
 
   <div class="col-12 d-flex justify-content-between px-0 pt-4">
@@ -18,6 +20,7 @@
     <div class="card_poster__favourite d-flex justify-content-end">
       <i class="card_poster__favourite--icon" data-feather="heart"></i>
     </div>
+
   </div>
 
 </article>

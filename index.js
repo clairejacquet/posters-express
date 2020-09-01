@@ -18,6 +18,11 @@ app.set('views', __dirname + '/app/views');
 
 app.use(router);
 
+//The 404 Route (ALWAYS Keep this as the last route)
+app.use(function (request, response) {
+    response.status(404).send('error - url route does not exist');
+});
+
 app.listen(app.get('port'), function () {
-  console.log('8080 is the magic port');
+  console.log('5000 is the magic port');
 });
