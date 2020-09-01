@@ -1,8 +1,8 @@
-# Posters-Express - a posters website
+# Posters page in Express
 
 `express` `node js` `npm` `ejs` `heroku` `flexbox`
 
-The aim of this project was to practice express and querying data in json format.
+This page displays posters. The aim of this project was to practice express and querying data in json format.
 Design replicated from Junique.com. The final version is deployed on Heroku.
 
 👉  Please check to latest version [here](https://posters-express.herokuapp.com/)
